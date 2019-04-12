@@ -121,7 +121,7 @@ def print_configuration_info():
   if sys.platform == 'darwin':
     print('  Mac %s %s' % (platform.mac_ver()[0], platform.mac_ver()[2]))
     try:
-      from XCodeDetect import XCodeDetect
+      import XCodeDetect
       print('  Xcode %s' % XCodeDetect.Version())
     except:
       pass
@@ -136,7 +136,7 @@ def print_configuration_info():
   elif sys.platform in ('linux', 'linux2'):
     # noinspection PyBroadException
     try:
-      with open('/etc/lsb-release', mode='r', encoding='utf-8') as f:
+      with open('/etc/lsb-release', mode='r') as f:
         dist = f.read().strip()
       print('  Linux %s' % dist)
     except:
